@@ -3,7 +3,6 @@ function fearNotLetter(str) {
   let alphabet = "abcdefghijklmnopqrstuvwxyz"
   let startingpoint = alphabet.indexOf(str[0])
   for (let i = 0; i < str.length; i++) {
-    // console.log(alphabet[startingpoint + i])
     if (str[i] !== alphabet[startingpoint + i]) {
       return alphabet[startingpoint + i]
     }
