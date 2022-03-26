@@ -6,17 +6,16 @@
 
 // Check the assertion tests for examples.
 function uniteUnique(arr) {
-  let number = []
-  let newArr = Array.from(arguments)
-  for (let i = 0; i < newArr.length; i++) {
-    for (let j = 0; j < newArr[i].length; j++) {
-      if (!number.includes(newArr[i][j])) {
-        number.push(newArr[i][j])
+  var args = [...arguments]
+  var result = []
+  for (var i = 0; i < args.length; i++) {
+    for (var j = 0; j < args[i].length; j++) {
+      if (!result.includes(args[i][j])) {
+        result.push(args[i][j])
       }
     }
   }
-
-  return arr
+  return result
 }
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]))
