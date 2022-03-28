@@ -5,10 +5,22 @@
 // For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
 
 function sumFibs(num) {
-  return num
+  let fib = [1, 1]
+  let count = 0
+  let fibnum
+
+  while (num > count) {
+    fibnum = parseInt(fib[count] + fib[count + 1])
+    // console.log(fib[count], fib[count + 1])
+    if (fibnum <= num) {
+      fib.push(fibnum)
+    }
+    count++
+  }
+  return fib.filter((n) => n % 2 != 0).reduce((a, b) => a + b)
 }
 
-sumFibs(4)
+console.log(sumFibs(4))
 
 // sumFibs(1) should return a number.
 

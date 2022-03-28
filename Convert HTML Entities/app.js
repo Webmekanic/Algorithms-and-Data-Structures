@@ -34,6 +34,7 @@ function convertHTML(str) {
 
 // convertHTML("abc") should return the string abc.
 
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 // Using Switches to solve the problem
 function convertHTML(str) {
   // Split by character to avoid problems.
@@ -58,10 +59,8 @@ function convertHTML(str) {
         break
     }
   }
-
   temp = temp.join("")
   return temp
 }
-
 //test here
 console.log(convertHTML("Dolce & Gabbana"))
