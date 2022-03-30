@@ -3,19 +3,17 @@
 // Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
 
 function sumPrimes(num) {
-  if (num < 2) return num
   let newArr = []
   for (let i = 2; i <= num; i++) {
-    newArr.push(i)
-    console.log(newArr)
-    if (num % i !== 0 && num > 1) {
-      num.reduce((a, b) => a + b)
+    if (newArr.every((newArr) => i % newArr !== 0)) {
+      newArr.push(i)
+      console.log(newArr)
     }
   }
-  return newArr
+  return newArr.reduce((sum, newArr) => sum + newArr, 0)
 }
 
-console.log(sumPrimes(6))
+console.log(sumPrimes(10))
 
 // sumPrimes(10) should return a number.
 
