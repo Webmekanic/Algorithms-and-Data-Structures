@@ -5,10 +5,26 @@
 // For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
 
 function smallestCommons(arr) {
-  // return arr
+  const [min, max] = arr.sort((a, b) => a - b)
+  const numDiv = max - min + 1
+  let upperBound = 1
+  for (let i = min; i <= max; i++) {
+    upperBound *= i
+  }
+  for (let mul = max; mul <= upperBound; mul += max) {
+    let divisor = 0
+    for (let i = min; i <= max; i++) {
+      if (mul % i === 0) {
+        divisor += 1
+      }
+    }
+    if (divisor === numDiv) {
+      return mul
+    }
+  }
 }
 
-smallestCommons([1, 5])
+console.log(smallestCommons([2, 10]))
 
 // smallestCommons([1, 5]) should return a number.
 
