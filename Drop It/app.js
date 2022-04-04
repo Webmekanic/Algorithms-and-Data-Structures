@@ -3,12 +3,23 @@
 
 // Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
 function dropElements(arr, func) {
-  return arr
+  let emptyArr = []
+  let newArr = [...arr]
+  for (let i = 0; i <= arr.length; i++) {
+    console.log(func(arr[i]), arr[i])
+    if (func(arr[i])) {
+      let funcArr = newArr.splice(i, arr.length - i)
+      return funcArr
+    }
+  }
+  return emptyArr
 }
 
-dropElements([1, 2, 3], function (n) {
-  return n < 3
-})
+console.log(
+  dropElements([1, 2, 3, 4], function (n) {
+    return n > 5
+  })
+)
 
 // dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) should return [3, 4].
 
