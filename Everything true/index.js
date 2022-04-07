@@ -6,17 +6,26 @@
 // In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
 
 // Remember, you can access object properties through either dot notation or [] notation.
+
+// Video call link: https://meet.google.com/dtb-ruqy-ppm
+
 function truthCheck(collection, pre) {
-  return pre
+  let checkFor = collection.map((obj) => {
+    // console.log(obj)
+    return obj.hasOwnProperty(pre) && Boolean(obj[pre])
+  })
+  return checkFor.includes(false) ? false : true
 }
 
-truthCheck(
-  [
-    { name: "Quincy", role: "Founder", isBot: false },
-    { name: "Naomi", role: "", isBot: false },
-    { name: "Camperbot", role: "Bot", isBot: true },
-  ],
-  "isBot"
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "isBot"
+  )
 )
 // truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot") should return false.
 
