@@ -9,10 +9,16 @@
 // We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.
 
 function palindrome(str) {
+  let l = str.length
+  for (let i = 0; i < 1 / 2; i++) {
+    if (str[i] !== str[l - 1 - i]) {
+      return false
+    }
+  }
   return true
 }
 
-palindrome("eye")
+console.log(palindrome("_eye"))
 
 // palindrome("eye") should return a boolean.
 
