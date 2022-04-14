@@ -34,19 +34,28 @@ function rot13(str) {
     X: "K",
     Y: "l",
     Z: "M",
+    "!": "!",
+    ".": ".",
+    "?": "?",
   }
 
   //decipher the code
   let decipher = ""
   for (let i = 0; i < str.length; i++) {
-    decipher += decoded[str[i]]
+    const elem = str[i]
+    if (elem.includes(" ")) {
+      decipher += " "
+    } else {
+      decipher += decoded[elem]
+    }
   }
 
   //return the output
   return decipher
 }
-
 console.log(rot13("SERR PBQR PNZC"))
+
+// console.log(rot13("SERR CVMMN!"))
 
 // rot13("SERR PBQR PNZC") should decode to the string FREE CODE CAMP
 
