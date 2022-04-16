@@ -7,53 +7,38 @@
 // All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
 
 function rot13(str) {
-  let decoded = {
-    A: "N",
-    B: "O",
-    C: "P",
-    D: "Q",
-    E: "R",
-    F: "S",
-    G: "T",
-    H: "U",
-    I: "V",
-    J: "W",
-    K: "X",
-    L: "Y",
-    M: "Z",
-    N: "A",
-    O: "B",
-    P: "C",
-    Q: "D",
-    R: "E",
-    S: "F",
-    T: "G",
-    U: "H",
-    V: "I",
-    W: "J",
-    X: "K",
-    Y: "l",
-    Z: "M",
-    "!": "!",
-    ".": ".",
-    "?": "?",
-  }
+  let newStr = ""
+  let regex = /[A-Z]/
+  let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-  //decipher the code
-  let decipher = ""
   for (let i = 0; i < str.length; i++) {
-    const elem = str[i]
-    if (elem.includes(" ")) {
-      decipher += " "
+    if (str[i].match(regex)) {
+      //if the ith value of str is a character A-Z:
+      let index = alphabet.indexOf(str[i]) //using the current letter, find its index position from the alphabet
+
+      let newIndex = index + 13 //shift the index by adding 13
+      if (newIndex > 26) {
+        //if the shifted value goes past the letters of the alphabet...
+        newIndex = newIndex - 26 //...subtract the alphabet length from the value...
+        newStr += alphabet[newIndex] //...and start from the beginning of the alphabet. Add the character to the new string.
+      } else if (newIndex == 26) {
+        //should combine this else if with the if above:  newIndex >= 26.
+        newStr += alphabet[0]
+      } else {
+        //if under 26, then just add character to new string
+        newStr += alphabet[newIndex]
+      }
     } else {
-      decipher += decoded[elem]
+      //if this isn't a character A-Z, then just pass it on to the new string
+      newStr += str[i]
     }
   }
-
-  //return the output
-  return decipher
+  console.log(newStr)
+  //return newStr; //original value for freeCodeCamp.org answer
 }
-console.log(rot13("SERR PBQR PNZC"))
+
+// rot13("SERR CVMMN!")
+rot13("SERR YBIR?")
 
 // console.log(rot13("SERR CVMMN!"))
 
