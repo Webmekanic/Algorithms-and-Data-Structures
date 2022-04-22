@@ -9,26 +9,21 @@
 // Note: for this kata y isn't considered a vowel.
 
 function disemvowel(str) {
-  return str
+  let regex = /[aeiou]/gi
+  let newArr = []
+  let splitStr = str.split("")
+  for (let i = 0; i < splitStr.length; i++) {
+    if (!splitStr[i].match(regex)) {
+      newArr.push(splitStr[i])
+    }
+  }
+
+  return newArr.join("").trim()
 }
 
-const { assert } = require("chai")
+console.log(disemvowel("What are you, a communist?"))
 
-describe("Basic tests", () => {
-  it("Testing for fixed tests", () => {
-    assert.strictEqual(
-      disemvowel("This website is for losers LOL!"),
-      "Ths wbst s fr lsrs LL!"
-    )
-    assert.strictEqual(
-      disemvowel(
-        "No offense but,\nYour writing is among the worst I've ever read"
-      ),
-      "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd"
-    )
-    assert.strictEqual(
-      disemvowel("What are you, a communist?"),
-      "Wht r y,  cmmnst?"
-    )
-  })
-})
+// TEST
+//  disemvowel("This website is for losers LOL!") =>"Ths wbst s fr lsrs LL!"
+//  disemvowel("No offense but,\nYour writing is among the worst I've ever read") => "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd"
+//  disemvowel("What are you, a communist?") => "Wht r y,  cmmnst?"
