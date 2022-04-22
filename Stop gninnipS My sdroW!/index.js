@@ -2,8 +2,8 @@
 
 // Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" ) => returns "This is rehtona test"
 
+// Solution
 function spinWords(string) {
-  let newStr = []
   let splitStr = string.split(" ")
   for (let i = 0; i < splitStr.length; i++) {
     if (splitStr[i].length >= 5) {
