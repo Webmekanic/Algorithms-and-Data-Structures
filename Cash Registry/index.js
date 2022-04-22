@@ -23,24 +23,80 @@
 // See below for an example of a cash -in -drawer array:
 
 function checkCashRegister(price, cash, cid) {
-  let change
+  const currencyUnit = {
+    PENNY: 0.01,
+    NICKEL: 0.05,
+    DIME: 0.1,
+    QUARTER: 0.25,
+    ONE: 1.0,
+    FIVE: 5.0,
+    TEN: 10.0,
+    TWENTY: 20.0,
+    "ONE HUNDRED": 100.0,
+  }
+
+  // iterate to get the sum of cash-in-drawer
+  let sumCID = 0
+  for (let element of cid) {
+    sumCID += element[1]
+  }
+  sumCID = sumCID.toFixed(2)
+  // console.log(sumCID)
+
+  let changeTOGive = cash - price
+  // console.log(changeTOGive)
+  const changeArray = []
+  if (changeTOGive > sumCID) {
+    return {
+      status: "INSUFFICIENT_FUNDS",
+      change: changeArray,
+    }
+  } else if (changeTOGive.toFixed(2) === sumCID) {
+    return { status: "CLOSED", change: cid }
+  } else {
+    cid = cid.reverse()
+    for (let elem of cid) {
+      let temp = [elem[0], 0]
+      // console.log(temp)
+      while (changeTOGive >= currencyUnit[elem[0]] && elem[1] > 0) {
+        // console.log(currencyUnit[elem[0]])
+        temp[1] += currencyUnit[elem[0]]
+
+        elem[1] -= currencyUnit[elem[0]]
+        // console.log(elem[1])
+        changeTOGive -= currencyUnit[elem[0]]
+        changeTOGive = changeTOGive.toFixed(2)
+      }
+      if (temp[1] > 0) {
+        changeArray.push(temp)
+      }
+    }
+  }
+  if (changeTOGive > 0) {
+    return {
+      status: "INSUFFICIENT_FUNDS",
+      change: [],
+    }
+  }
   return {
-    status: "INSUFFICIENT_FUNDS",
-    change: [],
+    status: "OPEN",
+    change: changeArray,
   }
 }
 
-checkCashRegister(19.5, 20, [
-  ["PENNY", 1.01],
-  ["NICKEL", 2.05],
-  ["DIME", 3.1],
-  ["QUARTER", 4.25],
-  ["ONE", 90],
-  ["FIVE", 55],
-  ["TEN", 20],
-  ["TWENTY", 60],
-  ["ONE HUNDRED", 100],
-])
+console.log(
+  checkCashRegister(19.5, 20, [
+    ["PENNY", 1.01],
+    ["NICKEL", 2.05],
+    ["DIME", 3.1],
+    ["QUARTER", 4.25],
+    ["ONE", 90],
+    ["FIVE", 55],
+    ["TEN", 20],
+    ["TWENTY", 60],
+    ["ONE HUNDRED", 100],
+  ])
+)
 
 // TEST
 // checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]) should return an object.
