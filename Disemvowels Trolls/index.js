@@ -21,7 +21,9 @@ function disemvowel(str) {
   return newArr.join("").trim()
 }
 
-console.log(disemvowel("What are you, a communist?"))
+console.log(
+  disemvowel("No offense but,\nYour writing is among the worst I've ever read")
+)
 
 // TEST
 //  disemvowel("This website is for losers LOL!") =>"Ths wbst s fr lsrs LL!"
