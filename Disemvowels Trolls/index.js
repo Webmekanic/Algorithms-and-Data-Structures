@@ -17,7 +17,6 @@ function disemvowel(str) {
       newArr.push(splitStr[i])
     }
   }
-
   return newArr.join("")
 }
 
