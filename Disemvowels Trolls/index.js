@@ -18,7 +18,7 @@ function disemvowel(str) {
     }
   }
 
-  return newArr.join("").trim()
+  return newArr.join("")
 }
 
 console.log(
