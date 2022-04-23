@@ -16,7 +16,7 @@ const CalcAverage = (dolphins, koalas) => {
   let avgkoalas = koalas.reduce((prev, curr) => prev + curr)
   console.log(avgkoalas)
   const checkWinner = (avgDolhins, avgKoalas) => {
-    //
+    console.log(avgDolhins)
   }
 }
 CalcAverage([44, 23, 71], [65, 54, 49])
