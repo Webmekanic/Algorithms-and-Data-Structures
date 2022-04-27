@@ -64,17 +64,18 @@ let MORSE_CODE = {
   "--..--": ",",
 }
 
-const decodeMorse = function (morseCode) {
-  return morseCode
-    .split("   ") // get word code 3 spaces apart
+const decodeMorse = (morseCode) => {
+  let newStr = morseCode.split("   ")
+  let decoded = newStr
     .map((word) =>
       word
-        .split(" ") // get character code 1 spaces apart
-        .map((character) => MORSE_CODE[character]) // decode Morse code character
+        .split(" ")
+        .map((character) => MORSE_CODE[character])
         .join("")
     )
-    .join(" ") // add spaces between words
+    .join("")
     .trim()
+  console.log(decoded)
 }
 
 // TEST
