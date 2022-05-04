@@ -5,11 +5,13 @@ function binToDec(bin) {
   for (let i = 0; i < splitstr.length; i++) {
     const convertStrToNum = Number(splitstr[i] * 2)
     const strPow = Number(splitstr.length - 1 - i)
-    convertToDeci += Math.pow(convertStrToNum, strPow)
+    console.log(strPow)
+    console.log(Math.pow(convertStrToNum, strPow))
+    // convertToDeci += Math.pow(convertStrToNum, strPow)
   }
   return convertToDeci
 }
-console.log(binToDec("11001010"))
+binToDec("11001010")
 
 // describe("Example Tests", () => {
 // ;[
