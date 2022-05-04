@@ -4,14 +4,17 @@ function binToDec(bin) {
   let convertToDeci = 0
   for (let i = 0; i < splitstr.length; i++) {
     const convertStrToNum = Number(splitstr[i] * 2)
-    const strPow = Number(splitstr.length - 1 - i)
-    console.log(strPow)
-    console.log(Math.pow(convertStrToNum, strPow))
-    // convertToDeci += Math.pow(convertStrToNum, strPow)
+    const strPow = splitstr.length - 1 - i
+    // console.log(Math.pow(convertStrToNum, strPow))
+    convertToDeci += Math.pow(convertStrToNum, strPow)
+    // console.log(Math.pow(0, 0))
+
+    // console.log(convertToDeci)
   }
   return convertToDeci
 }
-binToDec("11001010")
+console.log(binToDec("11001010"))
+// 11001010
 
 // describe("Example Tests", () => {
 // ;[
