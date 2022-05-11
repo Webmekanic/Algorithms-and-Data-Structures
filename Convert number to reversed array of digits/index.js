@@ -5,7 +5,10 @@
 // 348597 => [7,9,5,8,4,3]
 // 0 => [0]
 function digitize(n) {
-  //code here
+  let loopArr = n.toString()
+  let splitStr = loopArr.split("")
+  return splitStr.reverse().join().trim()
 }
+console.log(digitize(35231))
 // assert.deepEqual(digitize(35231), [1, 3, 2, 5, 3])
 // assert.deepEqual(digitize(0), [0])
