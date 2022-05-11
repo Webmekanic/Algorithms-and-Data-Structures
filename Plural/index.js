@@ -4,14 +4,11 @@
 
 // All values will be positive integers or floats, or zero.
 function plural(n) {
-  let plural = "Plural"
-  if (n === 1) {
-    return `${Boolean(true)}, ${plural} for ${n}`
-  } else {
-    return `${Boolean(false)}, ${plural} for ${n}`
-  }
+  let answer = n === 1 ? false : true
+
+  return answer
 }
-console.log(plural(100))
+console.log(plural(0))
 // plural(0), true, "Plural for 0")
 // Test.assertEquals(plural(0.5), true, "Plural for 0.5")
 // Test.assertEquals(plural(1), false, "Plural for 1")
