@@ -7,8 +7,7 @@
 function digitize(n) {
   let loopArr = n.toString()
   let splitStr = loopArr.split("")
-  return splitStr.reverse().join().trim()
+  const newStr = splitStr.map((x) => parseInt(x))
+  return newStr.reverse()
 }
 console.log(digitize(35231))
-// assert.deepEqual(digitize(35231), [1, 3, 2, 5, 3])
-// assert.deepEqual(digitize(0), [0])
