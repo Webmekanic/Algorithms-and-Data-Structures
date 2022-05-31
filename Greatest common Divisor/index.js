@@ -2,15 +2,15 @@
 
 // The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer that is also greater or equal to 1.
 function mygcd(x, y) {
-  let hcf
+  let gcd
   for (let i = 1; i <= x && i <= y; i++) {
     if (x % i == 0 && y % i == 0) {
       hcf = i
     }
   }
-  return hcf
+  return gcd
 }
-console.log(mygcd(8, 9))
+console.log(mygcd(30, 12))
 // describe("Tests", () => {
 //   it("test", () => {
 //     Test.assertEquals(mygcd(30, 12), 6)
