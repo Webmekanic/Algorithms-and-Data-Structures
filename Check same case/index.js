@@ -13,4 +13,16 @@
 // 'B' and 'g' returns 0
 
 // '0' and '?' returns -1
-function sameCase(a, b) {}
+function sameCase(a, b) {
+  if (
+    (a && b === toLowerCase()) ||
+    (a && b === toUpperCase())
+  ) {
+    return 1
+  } else if (a.toLowerCase() && b.toUpperCase() || a.toUpperCase() && b.toLowerCase()) {
+    return 0
+  }
+} else {
+  return -1
+}
+
