@@ -39,16 +39,14 @@ let array1 = [
   true,
 ]
 
-// console.log(array1)
 function countSheeps(arrayOfSheep) {
-  let numSheep = 0
   let countSheep = []
   for (let i = 0; i < arrayOfSheep.length; i++) {
     if (arrayOfSheep[i] === true) {
       countSheep.push(arrayOfSheep[i])
-      console.log(countSheep.length)
     }
   }
+  return countSheep.length
 }
 
 countSheeps(array1)
