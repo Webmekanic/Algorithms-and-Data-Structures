@@ -5,4 +5,4 @@ function warnTheSheep(queue) {
     : `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`
 }
 
-warnTheSheep(["dots", "sheep", "sheep"])
+warnTheSheep(["sheep", "sheep", "sheep", "sheep", "sheep", "wolf", "sheep", "sheep"]
