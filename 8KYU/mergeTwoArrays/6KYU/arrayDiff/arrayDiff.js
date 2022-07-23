@@ -21,3 +21,9 @@ console.log(arrayDiff([1, 2, 3], [1, 2]))
 
 // arrayDiff([1, 2, 2], []), [1, 2, 2]
 // "a was [1,2,2], b was []
+
+// function array_diff(a, b) {
+//   return a.filter(x {
+//     return b.indexOf(x) == -1
+//   })
+// }
