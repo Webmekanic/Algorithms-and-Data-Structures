@@ -7,8 +7,8 @@
 // Return true if the array contains the value, false if not.
 
 function check(a, x) {
-  return a.filter((s) => (a.includes(s) ? true : false))
+  return a.includes(x)
 }
 
-check([101, 45, 75, 105, 99, 107], 107)
+console.log(check([101, 45, 75, 105, 99, 107], 107))
 // true
