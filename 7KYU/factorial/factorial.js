@@ -7,7 +7,7 @@
 
 function factorial(n) {
   // Calculate the factorial here
-  if (n === 1 || 0) {
+  if (n == 1 || n == 0) {
     return 1
   } else {
     return n * factorial(n - 1)
