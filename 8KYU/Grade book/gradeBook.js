@@ -8,23 +8,23 @@
 // 60 <= score < 70	'D'
 // 0 <= score < 60	'F'
 // Tested values are all between 0 and 100. Theres is no need to check for negative values or values greater than 100.
-
 function getGrade(s1, s2, s3) {
-  let score = (s1 + s2 + s3) / 3
-  if (score >= 90) {
-    return "A"
-  } else if (score >= 80) {
-    return "B"
-  } else if (score >= 70) {
-    return "C"
-  } else if (score >= 60) {
-    return "D"
-  } else {
-    return "F"
+  var avg = (s1 + s2 + s3) / 3
+  switch (true) {
+    case avg >= 90:
+      return "A"
+    case avg >= 80:
+      return "B"
+    case avg >= 70:
+      return "C"
+    case avg >= 60:
+      return "D"
+    default:
+      return "F"
   }
 }
 
-getGrade(95, 90, 93)
+console.log(getGrade(95, 90, 93))
 // "A"
 // Test.assertEquals(getGrade(100, 85, 96)
 // "A"
