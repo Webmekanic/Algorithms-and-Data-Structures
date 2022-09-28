@@ -9,5 +9,19 @@
 // balancedParens(3) => ["()()()","(())()","()(())","(()())","((()))"]
 
 function balancedParens(n) {
-  return []
+  const solution = []
+
+  const generateCombo = (leftPCount, rightPCount, partial) => {
+    // lets check for invalid
+    if (leftPCount > rightPCount) return
+    if (!leftPCount && !rightPCount) solution.push(partial)
+    // check for valid parentheses
+    if (leftPCount > 0)
+      generateCombo(leftPCount - 1, rightPCount, partial + "(")
+    if (rightPCount > 0)
+      generateCombo(leftPCount, rightPCount - 1, partial + ")")
+  }
+  generateCombo(n, n, "")
+  return solution
 }
+console.log(balancedParens(1))
