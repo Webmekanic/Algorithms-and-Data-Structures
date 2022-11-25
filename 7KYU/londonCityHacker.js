@@ -9,21 +9,16 @@
 
 // Solution
 function londonCityHacker(journey) {
-  let tube =
-    Math.round(
-      journey.filter((v) => typeof v === "string").length * 2.4 * 100
-    ) / 100
-  let bus =
-    Math.round(
-      journey.filter((v) => typeof v === "number").length * 1.5 * 100
-    ) / 100
-  let sum = tube + bus
+  let sum = 0
+
   for (let i = 0; i < journey.length; i++) {
-    if (typeof journey[i] === "number" && typeof journey[i + 1] === "number") {
-      sum -= 1.5
-      i++
+    if (typeof journey[i] === "string") sum += 2.4
+    else {
+      sum += 1.5
+      if (typeof journey[i + 1] === "number") i++
     }
   }
+
   return `£${sum.toFixed(2)}`
 }
 
